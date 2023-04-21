@@ -44,6 +44,6 @@ public class ArticleTest {
     @Transactional
     @Test
     public void deleteArticle(){
-        articleService.deleteArticle(52L);
+        articleService.deleteArticle(2L);
     }
 }

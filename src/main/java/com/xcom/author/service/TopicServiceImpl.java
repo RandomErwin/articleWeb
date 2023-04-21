@@ -6,6 +6,9 @@ import com.xcom.author.domain.Topic;
 import com.xcom.author.domain.TopicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import static org.springframework.data.repository.init.ResourceReader.Type.JSON;
 
 
 @Service
@@ -16,23 +19,33 @@ public class TopicServiceImpl implements TopicService{
     @Autowired
     private ArticleRepository articleRepository;
 
+    @Transactional
     @Override
     public Topic saveTopic(Topic topic){
         return topicRepository.save(topic);
     }
+
+    @Transactional
     @Override
     public Topic updateTopic(Topic topic){
         return topicRepository.save(topic);
     }
+
+    @Transactional
     @Override
     public Topic findTopic(Long id){
-        return topicRepository.findTopicById(id);
+        Topic topic = topicRepository.findTopicById(id);
+        return topic;
     }
+
+    @Transactional
     @Override
     public void deleteTopic(Long id){
         topicRepository.deleteTopicById(id);
     }
 
+
+    @Transactional
     @Override
     public Topic includeArticle(Long topicId, Long articleId){
         Topic topic = topicRepository.findTopicById(topicId);
@@ -40,6 +53,7 @@ public class TopicServiceImpl implements TopicService{
         topic.getArticles().add(article);
         return topic;
     }
+    @Transactional
     @Override
     public Topic unincludeArticle(Long topicId, Long articleId){
         Topic topic = topicRepository.findTopicById(topicId);
