@@ -9,5 +9,5 @@ import java.util.List;
 public interface ArticleRepository extends JpaRepository<Article, Long> {
 
     Article findArticleById(Long id);
-    List<Article> deleteArticleById(Long id);
+    void deleteArticleById(Long id);
 }

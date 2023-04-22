@@ -7,6 +7,6 @@ import java.util.List;
 
 @Repository
 public interface AuthorRepository extends JpaRepository<Author, Long> {
-    List<Author> findAuthorById(Long id);
+    Author findAuthorById(Long id);
     List<Author> deleteAuthorById(Long id);
 }

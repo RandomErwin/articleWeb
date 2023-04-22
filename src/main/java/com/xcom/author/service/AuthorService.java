@@ -8,7 +8,7 @@ public interface AuthorService {
     Author updateAuthor();
     Author saveAuthor(Author author);
     Author updateAuthor(Author author);
-    List<Author> findAuthor(Long id);
+    Author findAuthor(Long id);
     void deleteAuthor(Long id);
 
 }

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Date;
+import java.util.List;
 
 @SpringBootTest
 public class AuthorTest {
@@ -31,19 +32,9 @@ public class AuthorTest {
 
     @Test
     public void updateAuthor(){
-        Author author = new Author();
+        Author author = authorService.findAuthor(1L);
         author.setNickName("Boshe");
         author.setPhoneNum(("0931"));
-        author.setSigndate(new Date());
-
-        authorService.updateAuthor(author);
-    }
-
-    @Test
-    public void upadateAuthor(){
-        Author author = new Author();
-        author.setNickName("Ryan");
-        author.setPhoneNum("0986");
         author.setSigndate(new Date());
 
         authorService.updateAuthor(author);

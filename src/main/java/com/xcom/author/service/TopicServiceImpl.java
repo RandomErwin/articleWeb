@@ -58,7 +58,7 @@ public class TopicServiceImpl implements TopicService{
     public Topic unincludeArticle(Long topicId, Long articleId){
         Topic topic = topicRepository.findTopicById(topicId);
         Article article = articleRepository.findArticleById(articleId);
-        topic.getArticles().add(article);
+        topic.getArticles().remove(article);
         return topic;
     }
 

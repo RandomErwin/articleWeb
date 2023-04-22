@@ -19,20 +19,30 @@ public class TopicTest {
     @Test
     public void saveTopic(){
         Topic topic = new Topic();
-        topic.setName("Artis");
+        topic.setName("Semiconductor");
         topicService.saveTopic(topic);
     }
 
     @Test
     public void updateTopic(){
-        Topic topic = new Topic();
-        topic.setName("Semiconductor");
-        topicService.updateTopic(topic);
+        Topic topic = topicService.findTopic(302L);
+        topic.setName("philosophy");
+        topicService.saveTopic(topic);
+    }
+
+    @Test
+    public void deleteTopic(){
+        topicService.deleteTopic(252L);
     }
 
     @Test
     public void includeArticle(){
-        topicService.includeArticle(1L,1L);
+        topicService.includeArticle(2L,2L);
+    }
+
+    @Test
+    public void unincludeArticle(){
+        topicService.unincludeArticle(1L,1L);
     }
 
 }

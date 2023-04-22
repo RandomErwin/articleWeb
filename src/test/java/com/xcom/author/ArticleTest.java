@@ -16,6 +16,11 @@ public class ArticleTest {
     @Autowired
     private ArticleService articleService;
 
+    @Autowired
+    private ArticleRepository articleRepository;
+
+
+    @Transactional
     @Test
     public void saveArticle(){
         Article article = new Article();
@@ -28,7 +33,7 @@ public class ArticleTest {
     public void updateArticle(){
         Article article = new Article();
         article.setTopic("Artis theory");
-        article.setContent("something amazing picture");
+        article.setContent("Amazing");
         Comment comment1 = new Comment();
         comment1.setContent("Nice book");
         article.addComment(comment1);
@@ -40,6 +45,7 @@ public class ArticleTest {
         Article article = articleService.findArticle(1L);
         System.out.println(article);
     }
+
 
     @Transactional
     @Test

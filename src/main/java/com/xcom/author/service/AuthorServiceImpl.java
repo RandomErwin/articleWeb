@@ -15,14 +15,9 @@ public class AuthorServiceImpl implements AuthorService {
     @Autowired
     private AuthorRepository authorRepository;
 
-    @Transactional
     @Override
-    public Author updateAuthor(){
-        Author author = new Author();
-        author.setNickName("Bill");
-        author.setPhoneNum("0923");
-        author.setSigndate(new Date());
-        return authorRepository.save(author);
+    public Author updateAuthor() {
+        return null;
     }
 
     @Override
@@ -36,7 +31,7 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public List<Author> findAuthor(Long id){
+    public Author findAuthor(Long id){
         return authorRepository.findAuthorById(id);
     }
 

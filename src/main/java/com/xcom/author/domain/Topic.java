@@ -14,7 +14,6 @@ public class Topic {
     private String name;
 
     @ManyToMany
-    @JoinTable
     private List<Article> articles = new ArrayList<>();
 
     public Topic() {
