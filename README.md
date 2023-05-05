@@ -1,7 +1,6 @@
 # articleWeb
 
 ![image](https://github.com/RandomErwin/articleWeb/blob/main/後端工程.png)
-![image](https://github.com/RandomErwin/articleWeb/blob/main/實體關係圖.png)
 
 ## Entity
 ``` java
@@ -104,4 +103,4 @@ public class ArticleTest{
        ＃updateArticle、findArticle、deleteArticle
 }
 ```
-
+![image](https://github.com/RandomErwin/articleWeb/blob/main/實體關係圖.png)
