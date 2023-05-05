@@ -7,6 +7,7 @@ import com.xcom.author.service.AuthorServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -23,8 +24,8 @@ public class AuthorTest {
     @Test
     public void saveAuthorTest(){
         Author author = new Author();
-        author.setNickName("Nick");
-        author.setPhoneNum(("0984"));
+        author.setNickName("Jonson");
+        author.setPhoneNum(("0926"));
         author.setSigndate(new Date());
 
         authorRepository.save(author);
@@ -38,6 +39,12 @@ public class AuthorTest {
         author.setSigndate(new Date());
 
         authorService.updateAuthor(author);
+    }
+
+    @Transactional
+    @Test
+    public void deleteAuthor(){
+        authorService.deleteAuthor(52L);
     }
 
 }

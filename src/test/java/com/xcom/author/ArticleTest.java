@@ -8,6 +8,7 @@ import net.minidev.json.JSONArray;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
@@ -24,18 +25,19 @@ public class ArticleTest {
     @Test
     public void saveArticle(){
         Article article = new Article();
-        article.setTopic("優雅的宇宙");
+        article.setTitle("優雅的宇宙");
         article.setContent("String theory");
         articleService.saveArticle(article);
     }
 
     @Test
     public void updateArticle(){
-        Article article = new Article();
-        article.setTopic("Artis theory");
-        article.setContent("Amazing");
+        Article article = articleService.findArticle(102L);
+        article.setTitle("國家為什麼會失敗");
+        article.setContent("闡述廣納型與搾取型制度導致的經濟結果");
+
         Comment comment1 = new Comment();
-        comment1.setContent("Nice book");
+        comment1.setContent("值得參考的一本書");
         article.addComment(comment1);
         articleService.updateArticle(article);
     }
@@ -47,8 +49,8 @@ public class ArticleTest {
     }
 
 
-    @Transactional
     @Test
+    @Transactional
     public void deleteArticle(){
         articleService.deleteArticle(2L);
     }

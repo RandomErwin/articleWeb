@@ -9,19 +9,21 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class ArticleServiceImpl implements ArticleService{
+public class ArticleServiceImpl implements ArticleService {
 
     @Autowired
     private ArticleRepository articleRepository;
 
     @Override
-    public Article saveArticle(Article article){
+    public Article saveArticle(Article article) {
         return articleRepository.save(article);
     }
+
     @Override
-    public Article updateArticle(Article article){
+    public Article updateArticle(Article article) {
         return articleRepository.save(article);
     }
+
     @Override
     public Article findArticle(Long id) {
         return articleRepository.findArticleById(id);
@@ -29,7 +31,8 @@ public class ArticleServiceImpl implements ArticleService{
 
     @Transactional
     @Override
-    public void deleteArticle(Long id){
+    public void deleteArticle(Long id) {
         articleRepository.deleteArticleById(id);
     }
+
 }
